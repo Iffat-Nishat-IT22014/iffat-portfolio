@@ -1,0 +1,695 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iffat Jahan IT22014 Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --secondary-color: #4a44c6;
+            --accent-color: #ff6584;
+            --dark-color: #2a2d3e;
+            --light-color: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background: #fefefe;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            color: var(--primary-color) !important;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        .navbar-brand::after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            margin: 0 10px;
+            color: var(--dark-color) !important;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(255, 101, 132, 0.05) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, rgba(108, 99, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-image {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-image img {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-image img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .title-highlight {
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .title-highlight::after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(108, 99, 255, 0.2);
+            z-index: -1;
+        }
+        
+        /* Section Styling */
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        /* About Section */
+        .about-img {
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .about-img:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-badge {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin: 5px;
+            display: inline-block;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+        }
+        
+        /* Education Section */
+        .education-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .education-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(108, 99, 255, 0.15);
+        }
+        
+        .education-img {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--primary-color);
+            padding: 5px;
+            background: white;
+        }
+        
+        /* Project Section */
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            border-top: 5px solid transparent;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.15);
+            border-top-color: var(--primary-color);
+        }
+        
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+        
+        .project-tag {
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 10px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.05) 0%, rgba(255, 101, 132, 0.03) 100%);
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: white;
+            color: var(--dark-color);
+            font-size: 1.5rem;
+            line-height: 60px;
+            text-align: center;
+            margin: 0 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-10px);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-link.github:hover {
+            background: #333;
+        }
+        
+        .social-link.linkedin:hover {
+            background: #0077b5;
+        }
+        
+        .social-link.codeforces:hover {
+            background: #ff4500;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-section {
+                text-align: center;
+                padding-top: 120px;
+            }
+            
+            .hero-image img {
+                margin-top: 50px;
+                transform: none;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-padding {
+                padding: 70px 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animation classes */
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(108, 99, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0); }
+        }
+        
+        .bg-pattern {
+            background-image: radial-gradient(var(--primary-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.03;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand" href="#">Iffat Jahan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="bg-pattern"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content" data-aos="fade-right">
+                    <h5 class="text-primary mb-3">Hello, I'm</h5>
+                    <h1 class="display-4 fw-bold mb-4">Iffat <span class="title-highlight">Jahan</span></h1>
+                    <h3 class="mb-4">Web Developer & <span class="text-primary">Competitive Programmer</span></h3>
+                    <p class="lead mb-5">Passionate about creating beautiful, functional websites and solving complex coding challenges. Always eager to learn new technologies and take on exciting projects.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#projects" class="btn btn-primary btn-lg px-4 py-3 pulse-animation">View My Work</a>
+                        <a href="#contact" class="btn btn-outline-primary btn-lg px-4 py-3">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image" data-aos="fade-left" data-aos-delay="200">
+                    <img src="image/my photo.png" class="img-fluid float-animation" alt="Iffat Jahan">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title" data-aos="fade-up">About Me</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Get to know me better</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <img src="image/WhatsApp Image 2025-12-15 at 7.00.56 PM.jpeg" class="img-fluid about-img" alt="About Iffat">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h3 class="mb-4">A dedicated developer based in Bangladesh</h3>
+                    <p class="mb-4">I'm a passionate web developer and competitive programmer with a strong foundation in computer science. I love turning complex problems into simple, beautiful designs.</p>
+                    <p class="mb-5">When I'm not coding, you can find me reading tech blogs, participating in coding contests, or exploring new frameworks and technologies.</p>
+                    
+                    <h5 class="mb-3">My Skills</h5>
+                    <div class="mb-5">
+                        <span class="skill-badge">HTML/CSS</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">Bootstrap</span>
+                        <span class="skill-badge">Node.js</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">C++</span>
+                        <span class="skill-badge">Git</span>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                        <div class="me-4">
+                            <h3 class="text-primary mb-0">7+</h3>
+                            <p class="mb-0">Projects</p>
+                        </div>
+                        <div class="me-4">
+                            <h3 class="text-primary mb-0">150+</h3>
+                            <p class="mb-0">Codeforces Problems</p>
+                        </div>
+                        <div>
+                            <h3 class="text-primary mb-0">3+</h3>
+                            <p class="mb-0">Happy submission</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section-padding bg-light" id="education">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Education</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">My academic journey</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="education-card">
+                        <div class="text-center">
+                            <img src="image/school.jfif" class="education-img" alt="School">
+                        </div>
+                        <h4 class="text-center mb-3">High School(GIMSC)</h4>
+                        <h5 class="text-primary text-center mb-3">Science Division</h5>
+                        <p class="text-center mb-4">Completed my secondary and higher secondary education with a focus on science. Achieved outstanding results in board examinations.</p>
+                        <div class="text-center">
+                            <span class="badge bg-primary">GPA: 5.00</span>
+                            <span class="badge bg-secondary">2019</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="education-card">
+                        <div class="text-center">
+                            <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80" class="education-img" alt="College">
+                        </div>
+                        <h4 class="text-center mb-3">College(SHKSC)</h4>
+                        <h5 class="text-primary text-center mb-3">Science Division</h5>
+                        <p class="text-center mb-4">Continued my science education with advanced mathematics, physics, and chemistry. Participated in national science olympiads.</p>
+                        <div class="text-center">
+                            <span class="badge bg-primary">GPA: 5.00</span>
+                            <span class="badge bg-secondary">2021</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="education-card">
+                        <div class="text-center">
+                            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="education-img" alt="University">
+                        </div>
+                        <h4 class="text-center mb-3">University(MBSTU)</h4>
+                        <h5 class="text-primary text-center mb-3">Information And communication Technology</h5>
+                        <p class="text-center mb-4">Currently pursuing my bachelor's degree in ICT. Learning advanced algorithms, data structures, and software engineering principles.</p>
+                        <div class="text-center">
+                            <span class="badge bg-primary">CGPA: 3.50</span>
+                            <span class="badge bg-secondary">2023-Present</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section-padding" id="projects">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title" data-aos="fade-up">My Projects</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Some of my recent work</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="img-fluid project-img w-100" alt="Quiz Game">
+                        <div class="p-4">
+                            <div class="mb-3">
+                                <span class="project-tag">C++</span>
+                                <span class="project-tag">Console</span>
+                                <span class="project-tag">Game</span>
+                            </div>
+                            <h4 class="mb-3">Quiz Game</h4>
+                            <p class="mb-4">A comprehensive console-based quiz game with multiple categories, scoring system, and money rewards for correct answers. Features science, technology, movies, and sports questions.</p>
+                            <a href="#" class="btn btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80" class="img-fluid project-img w-100" alt="Tic Tac Toe">
+                        <div class="p-4">
+                            <div class="mb-3">
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">HTML/CSS</span>
+                                <span class="project-tag">Game</span>
+                            </div>
+                            <h4 class="mb-3">Tic Tac Toe</h4>
+                            <p class="mb-4">An interactive Tic Tac Toe game with a beautiful UI. Players take turns marking X and O on a 3x3 grid. Features win detection, score tracking, and the option to reset or start a new game.</p>
+                            <a href="#" class="btn btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=815&q=80" class="img-fluid project-img w-100" alt="Portfolio Website">
+                        <div class="p-4">
+                            <div class="mb-3">
+                                <span class="project-tag">HTML/CSS</span>
+                                <span class="project-tag">Bootstrap</span>
+                                <span class="project-tag">Responsive</span>
+                            </div>
+                            <h4 class="mb-3">Portfolio Website</h4>
+                            <p class="mb-4">A fully responsive portfolio website showcasing projects, skills, and experience. Built with Bootstrap 5 and custom CSS. Features animations, smooth scrolling, and a contact form.</p>
+                            <a href="#" class="btn btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding contact-section" id="contact">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Let's work together!</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="mb-5" data-aos="fade-up">I'm always open to discussing new opportunities, interesting projects, or just having a friendly chat about technology and coding.</p>
+                    
+                    <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="https://github.com/iffatjahan" class="social-link github" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/iffatjahan" class="social-link linkedin" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://codeforces.com/profile/iffatjahan" class="social-link codeforces" target="_blank">
+                            <i class="fas fa-code"></i>
+                        </a>
+                    </div>
+                    
+                    <div data-aos="fade-up" data-aos-delay="400">
+                        <h4 class="mb-4">Or send me an email</h4>
+                        <a href="mailto:iffat@example.com" class="btn btn-primary btn-lg px-5 py-3">
+                            <i class="fas fa-envelope me-2"></i>iffatnishat0@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <h4 class="mb-0">Iffat Jahan</h4>
+                    <p class="mb-0 mt-2">Web Developer & Competitive Programmer</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">© 2023 Iffat Jahan. All rights reserved.</p>
+                    <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> and Bootstrap 5</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if(window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
